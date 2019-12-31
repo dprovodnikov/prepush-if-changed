@@ -1,6 +1,6 @@
-# prepush-if-changed
+# prepush-if-changed [![Build Status](https://travis-ci.com/dprovodnikov/prepush-if-changed.svg?branch=master)](https://travis-ci.com/dprovodnikov/prepush-if-changed) [![Coverage Status](https://coveralls.io/repos/github/dprovodnikov/prepush-if-changed/badge.svg?branch=master)](https://coveralls.io/github/dprovodnikov/prepush-if-changed?branch=master)
 
-Command-runner for commited files written to be used as a pre-push hook
+Acts as a pre-push hook to run commands only if committed files match the specified glob.
 
 ---
 
@@ -18,7 +18,7 @@ Command-runner for commited files written to be used as a pre-push hook
 
 ## Why
 
-It doesn't always make sense to run pre-push hooks on every push. Sometimes you need to trigger a hook only when the pushed changes affect a specific area of your file structure. This project contains a script that will check committed files against a glob pattern and only trigger the task if there's a match.
+It doesn't always make sense to run pre-push hooks on every push. Sometimes you need to trigger a hook only when the pushed changes affect a specific area of your file structure. This project contains a script that will check committed files against a glob and only trigger the task if there's a match.
 
 The script will compare your current local branch with the remote(origin) one. If the remote branch does not exist the script will exit with code 0 without performing any execution.
 
@@ -61,6 +61,6 @@ You can use the following files to write a config:
 
 ---
 
-Your commands will be executed only if any of the committed files match the glob pattern. `prepush-if-changed´ uses [micromatch](https://github.com/micromatch/micromatch) for matching files.
+Your commands will be executed only if any of the committed files match the glob. `prepush-if-changed´ uses [micromatch](https://github.com/micromatch/micromatch) for matching files.
 
 
