@@ -8,15 +8,15 @@ jest.mock('git-changed-files', () => () => {
 });
 
 import execSpy from 'exec-sh';
-import { executeBeforePush } from '../executeBeforePush';
+import { executeIfMatches } from './executeIfMatches';
 
-describe('executeBeforePush()', () => {
+describe('executeIfMatches()', () => {
   beforeEach(() => {
     execSpy.mockClear();
   });
 
   test('should execute command if any files match the pattern', async () => {
-    await executeBeforePush({
+    await executeIfMatches({
       '**/*.js': 'npm run test',
     });
 
@@ -24,7 +24,7 @@ describe('executeBeforePush()', () => {
   });
 
   test('should not execute command if no files match the pattern', async () => {
-    await executeBeforePush({
+    await executeIfMatches({
       '**/*.css': 'echo Hello, World!',
     });
 
@@ -33,7 +33,7 @@ describe('executeBeforePush()', () => {
 
   test('should reject if no config was passed on input', async () => {
     try {
-      await executeBeforePush(undefined);
+      await executeIfMatches(undefined);
       expect(false).toBeTruthy();
     } catch (err) {
       expect(true).toBeTruthy();

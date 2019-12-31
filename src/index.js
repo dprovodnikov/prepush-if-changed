@@ -1,6 +1,5 @@
-import executeBeforePush from './executeBeforePush';
+import executeIfMatches from './executeIfMatches';
 
-
-executeBeforePush({
-  '*': 'npm run test',
+executeIfMatches({
+  'src/**/*': 'npm run test',
 });

@@ -27,7 +27,7 @@ const withErrorHandling = (fn) => (...args) => {
   return fn(...args).catch(handleExecutionError);
 };
 
-export const executeBeforePush = async (config) => {
+export const executeIfMatches = async (config) => {
   if (!config) {
     return Promise.reject(Error('Expected config of type object on input'));
   }
@@ -45,4 +45,4 @@ export const executeBeforePush = async (config) => {
   });
 };
 
-export default withErrorHandling(executeBeforePush);
+export default withErrorHandling(executeIfMatches);
