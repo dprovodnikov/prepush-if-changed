@@ -26,7 +26,7 @@
     "git"
   ],
   "author": "Denys Provodnikov <dp.wireden@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dprovodnikov/prepush-if-changed/issues"
   },
