@@ -42,5 +42,5 @@ const executeBeforePush = async (config) => {
 
 // TODO: move the config definition to package.json or prepushrc.js
 executeBeforePush({
-  '*.js': 'echo "Hello world"',
+  'src/**/*.js': 'echo "Hello world"',
 });
