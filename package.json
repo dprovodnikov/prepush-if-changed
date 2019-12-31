@@ -4,7 +4,9 @@
   "description": "A tool to execute your commands only for changed files that match your pattern.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose --passWithNoTests",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -25,8 +27,12 @@
   },
   "homepage": "https://github.com/dprovodnikov/prepush-if-changed#readme",
   "dependencies": {
+    "exec-sh": "^0.3.4",
     "git-branch": "^2.0.1",
     "git-changed-files": "^1.0.0",
     "micromatch": "^4.0.2"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }

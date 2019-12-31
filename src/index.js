@@ -1,7 +1,7 @@
 const gitChangedFiles = require('git-changed-files');
 const getCurrentBranchName = require('git-branch');
 const micromatch = require('micromatch');
-const run = require('./run');
+const exec = require('exec-sh');
 
 const UnknownRevisionError = Error('Unknown revision or path not in the working tree');
 
@@ -12,7 +12,7 @@ const getCommittedFilesnames = (branch) => {
     .then(diff => diff.committedFiles)
     .catch(() => {
       throw UnknownRevisionError;
-    })
+    });
 };
 
 const getPatterns = config => Object.keys(config);
@@ -22,23 +22,22 @@ const handleExecutionError = (err) => {
 };
 
 const executeBeforePush = async (config) => {
-  try {
-    const currentBranch = await getCurrentBranchName();
-    const filenames = await getCommittedFilesnames(currentBranch);
+  const currentBranch = await getCurrentBranchName();
+  const filenames = await getCommittedFilesnames(currentBranch);
 
-    getPatterns(config).map((pattern) => {
-      const match = micromatch(filenames, [pattern]);
+  getPatterns(config).map((pattern) => {
+    const match = micromatch(filenames, [pattern]);
+    const command = config[pattern];
 
-      if (match.length) {
-        run(config[pattern]);
-      }
-    });
-  } catch (err) {
-    handleExecutionError(err);
-  }
+    if (match.length) {
+      exec(command);
+    }
+  });
 };
 
 // TODO: move the config definition to package.json or prepushrc.js
-executeBeforePush({
-  '*': 'ls',
-});
+const executionConfig = {
+  '*': 'npm run test',
+};
+
+executeBeforePush(executionConfig).catch(handleExecutionError);
