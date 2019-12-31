@@ -19,9 +19,4 @@ const loadConfig = () => {
   .then(result => result.config);
 };
 
-loadConfig()
-.then(config => {
-  console.log(config);
-  return config;
-})
-.then(executeIfMatches);
+loadConfig().then(executeIfMatches);
