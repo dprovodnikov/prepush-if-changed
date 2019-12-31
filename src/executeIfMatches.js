@@ -5,6 +5,7 @@ import exec from 'exec-sh';
 
 const UnknownRevisionError = Error('Unknown revision or path not in the working tree');
 
+
 const getCommittedFilesnames = (branch) => {
   const options = { baseBranch: `origin/${branch}` };
 
