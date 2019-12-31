@@ -2,10 +2,12 @@
   "name": "prepush-if-changed",
   "version": "1.0.0",
   "description": "A tool to execute your commands only for changed files that match your pattern.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "rm -rf dist && babel src -d dist",
+    "build:watch": "rm -rf dist && babel --watch src -d dist",
     "test": "jest --verbose --passWithNoTests",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watch --verbose",
     "test:coverage": "jest --coverage"
   },
   "repository": {
@@ -33,6 +35,9 @@
     "micromatch": "^4.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-polyfill": "^6.26.0",
     "jest": "^24.9.0"
   }
 }
