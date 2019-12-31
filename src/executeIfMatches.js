@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 import gitChangedFiles from 'git-changed-files';
 import getCurrentBranchName from 'git-branch';
 import micromatch from 'micromatch';
