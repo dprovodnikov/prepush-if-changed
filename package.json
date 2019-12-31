@@ -34,7 +34,9 @@
   "dependencies": {
     "exec-sh": "^0.3.4",
     "git-branch": "^2.0.1",
+    "git-branch-parent": "^0.1.2",
     "git-changed-files": "^1.0.0",
+    "git-lib": "^1.6.0",
     "micromatch": "^4.0.2"
   },
   "devDependencies": {

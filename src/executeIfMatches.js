@@ -1,15 +1,29 @@
 import gitChangedFiles from 'git-changed-files';
 import getCurrentBranchName from 'git-branch';
+import getParentBranchName from 'git-branch-parent';
+import git from 'git-lib';
 import micromatch from 'micromatch';
 import exec from 'exec-sh';
 
 const UnknownRevisionError = Error('Unknown revision or path not in the working tree');
 
+const doesRemoteBranchExist = (branch) => {
+  return new Promise((resolve) => {
+    gitChangedFiles({ baseBranch: `origin/${branch}` })
+      .then(() => resolve(true))
+      .catch(() => resolve(false));
+  });
+};
 
-const getCommittedFilesnames = (branch) => {
-  const options = { baseBranch: `origin/${branch}` };
+const getCommittedFilesnames = async (branch) => {
+  const exists = await doesRemoteBranchExist(branch);
+  let baseBranch = branch;
 
-  return gitChangedFiles(options)
+  if (!exists) {
+    baseBranch = getParentBranchName.sync();
+  }
+
+  return gitChangedFiles({ baseBranch: `origin/${baseBranch}` })
     .then(diff => diff.committedFiles)
     .catch(() => {
       throw UnknownRevisionError;
