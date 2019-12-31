@@ -1,9 +1,7 @@
 const gitChangedFiles = require('git-changed-files');
 const getCurrentBranchName = require('git-branch');
 const micromatch = require('micromatch');
-
-// TODO: replace with a custom implementation
-const { run } = require('runjs');
+const run = require('./run');
 
 const UnknownRevisionError = Error('Unknown revision or path not in the working tree');
 
@@ -42,5 +40,5 @@ const executeBeforePush = async (config) => {
 
 // TODO: move the config definition to package.json or prepushrc.js
 executeBeforePush({
-  'src/**/*.js': 'echo "Hello world"',
+  '*': 'ls',
 });
