@@ -1,0 +1,33 @@
+{
+  "name": "prepush-if-changed",
+  "version": "1.0.0",
+  "description": "A tool to execute your commands only for changed files that match your pattern.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dprovodnikov/prepush-if-changed.git"
+  },
+  "keywords": [
+    "prepush",
+    "hook",
+    "pattern",
+    "changed",
+    "commited",
+    "git"
+  ],
+  "author": "Denys Provodnikov <dp.wireden@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dprovodnikov/prepush-if-changed/issues"
+  },
+  "homepage": "https://github.com/dprovodnikov/prepush-if-changed#readme",
+  "dependencies": {
+    "git-branch": "^2.0.1",
+    "git-changed-files": "^1.0.0",
+    "micromatch": "^4.0.2",
+    "runjs": "^4.4.2"
+  }
+}
