@@ -41,7 +41,7 @@ This example uses `package.json` for configuration.
     }
   },
   "prepush-if-changed": {
-    "src/**/*.js?(x)": "npm run test" // run you linter, tests etc.
+    "src/**/*.js?(x)": "npm run test"
   }
 }
 ```
