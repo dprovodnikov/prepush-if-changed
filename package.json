@@ -4,7 +4,7 @@
   "description": "A tool to execute your commands only for changed files that match your pattern.",
   "main": "dist/index.js",
   "bin": {
-    "execute-if-matches": "cli.js"
+    "prepush-if-changed": "cli.js"
   },
   "scripts": {
     "build": "rm -rf dist && babel src -d dist --ignore **/*.spec.*",
@@ -41,6 +41,7 @@
     "@babel/cli": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "babel-polyfill": "^6.26.0",
+    "cosmiconfig": "^6.0.0",
     "jest": "^24.9.0"
   }
 }
