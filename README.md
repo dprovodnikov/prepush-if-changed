@@ -53,6 +53,6 @@ You can use the following files to write a config:
 
 ## Matching files
 
-Your commands will be executed only if any of the committed files match the glob. `prepush-if-changed´ uses [micromatch](https://github.com/micromatch/micromatch) for matching files.
+Your commands will be executed only if any of the committed files match the glob. `prepush-if-changed` uses [micromatch](https://github.com/micromatch/micromatch) for matching files.
 
 
