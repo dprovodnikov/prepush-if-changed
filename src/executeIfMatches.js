@@ -1,7 +1,6 @@
 import gitChangedFiles from 'git-changed-files';
 import getCurrentBranchName from 'git-branch';
 import getParentBranchName from 'git-branch-parent';
-import git from 'git-lib';
 import micromatch from 'micromatch';
 import exec from 'exec-sh';
 
