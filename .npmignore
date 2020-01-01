@@ -1,0 +1,6 @@
+.babelrc
+.travis.yml
+src
+coverage
+.prepushrc
+.gitignore

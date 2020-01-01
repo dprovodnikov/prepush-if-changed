@@ -14,9 +14,9 @@ export const checkExistanceOnRemote = (branch) => {
   });
 };
 
-const getCommittedFiles = (branch) => {
+export const getCommittedFiles = (branch) => {
   return checkExistanceOnRemote(branch)
-    .then(exists => exists ? branch : getParentBranch.sync())
+    .then(exists => exists ? branch : getParentBranch())
     .then((baseBranch) => {
       const options = {
         baseBranch: `origin/${baseBranch}`,
@@ -26,7 +26,7 @@ const getCommittedFiles = (branch) => {
       return gitChangedFiles(options);
     })
     .then(diff => diff.committedFiles)
-    .catch(() => {
+    .catch((err) => {
       throw UnknownRevisionError;
     });
 };
