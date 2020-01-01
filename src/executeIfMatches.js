@@ -1,6 +1,14 @@
 import micromatch from 'micromatch';
-import execute from 'exec-sh';
+import execSh, { promise } from 'exec-sh';
 import git, { UnknownRevisionError } from './git';
+
+const execute = (command) => {
+  execSh(command, (err) => {
+    if (err) {
+      throw err;
+    }
+  });
+};
 
 export const executeIfMatches = async (config) => {
   if (!config) {
