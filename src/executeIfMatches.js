@@ -1,6 +1,6 @@
 import micromatch from 'micromatch';
 import execute from 'exec-sh';
-import git from './git';
+import git, { UnknownRevisionError } from './git';
 
 export const executeIfMatches = async (config) => {
   if (!config) {
@@ -20,7 +20,7 @@ export const executeIfMatches = async (config) => {
 
 const withErrorHandling = (fn) => (...args) => {
   return fn(...args).catch((err) => {
-    process.exit(err === git.UnknownRevisionError ? 0 : 1);
+    process.exit(err === UnknownRevisionError ? 0 : 1);
   });
 };
 

@@ -35,5 +35,4 @@ const getCommittedFiles = (branch) => {
 export default {
   getCommittedFiles,
   getBranch: getCurrentBranch.sync,
-  UnknownRevisionError,
 };
