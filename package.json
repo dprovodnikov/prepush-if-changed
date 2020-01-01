@@ -1,6 +1,6 @@
 {
   "name": "prepush-if-changed",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": " A tool that runs your commands if any git-pushed files match the glob written to be used as a pre-push hook",
   "main": "src/index.js",
   "bin": {
