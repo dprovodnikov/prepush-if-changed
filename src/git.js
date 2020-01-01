@@ -6,7 +6,7 @@ export const UnknownRevisionError = Error(
   'Unknown revision or path not in the working tree',
 );
 
-const checkExistanceOnRemote = (branch) => {
+export const checkExistanceOnRemote = (branch) => {
   return new Promise((resolve) => {
     gitChangedFiles({ baseBranch: `origin/${branch}` })
       .then(() => resolve(true))
