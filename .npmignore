@@ -1,6 +1,6 @@
 .babelrc
 .travis.yml
-src
+src/**/*
 coverage
 .prepushrc
 .gitignore
