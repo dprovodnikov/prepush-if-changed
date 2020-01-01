@@ -7,8 +7,8 @@
     "prepush-if-changed": "cli.js"
   },
   "scripts": {
-    "build": "rm -rf dist && babel src -d dist --ignore **/*.spec.*",
-    "build:watch": "rm -rf dist && babel --watch src -d dist --ignore **/*.spec.*",
+    "build": "rm -rf dist && babel src -d dist --ignore **/*.spec.js --ignore",
+    "build:watch": "rm -rf dist && babel --watch src -d dist --ignore **/*.spec.js",
     "test": "jest --verbose --passWithNoTests",
     "test:watch": "jest --watch --verbose",
     "test:coverage": "jest --coverage"

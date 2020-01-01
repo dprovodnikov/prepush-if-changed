@@ -4,3 +4,4 @@ src
 coverage
 .prepushrc
 .gitignore
+**/*.spec.*
