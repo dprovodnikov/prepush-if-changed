@@ -1,6 +1,6 @@
 {
   "name": "prepush-if-changed",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": " A tool that runs your commands if any git-pushed files match the glob written to be used as a pre-push hook",
   "main": "dist/index.js",
   "bin": {
@@ -32,17 +32,17 @@
   },
   "homepage": "https://github.com/dprovodnikov/prepush-if-changed#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "cosmiconfig": "^6.0.0",
     "exec-sh": "^0.3.4",
     "git-branch": "^2.0.1",
     "git-branch-parent": "^0.1.2",
     "git-changed-files": "^1.0.0",
-    "micromatch": "^4.0.2",
-    "cosmiconfig": "^6.0.0"
+    "micromatch": "^4.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
-    "babel-polyfill": "^6.26.0",
     "jest": "^24.9.0"
   }
 }

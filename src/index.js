@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 import { cosmiconfig } from 'cosmiconfig';
 import executeIfMatches from './executeIfMatches';

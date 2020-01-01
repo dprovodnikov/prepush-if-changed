@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 jest.mock('git-changed-files', () => jest.fn());
 jest.mock('git-branch-parent', () => jest.fn());
